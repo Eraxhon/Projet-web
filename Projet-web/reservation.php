@@ -1,35 +1,43 @@
-<form method="post" action="passagers.php">
+VUE
 
 <p>
-    RESERVATION <br>
-    Le prix de la place est de 10 euros jusqu'à 12 ans et puis 15 euros.
-<br>
-    Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
+        RESERVATION
+        <br>
+        Le prix de la place est de 10 euros jusqu'à 12 ans et puis 15 euros.
+        <br>
+        Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
+
 </p>
 
+        <form method="get" action="index.php">
+           <select name="destination">
+                <option value="Berlin">Berlin</option>
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Barcelone">Barcelone</option>
+                <option value="Bruxelles">Bruxelles</option>
+            </select>
+        </form>
 
-<select name="destination">
-    <option value="Berlin">Berlin</option>
-    <option value="Amsterdam">Amsterdam</option>
-    <option value="Barcelone">Barcelone</option>
-    <option value="Bruxelles">Bruxelles</option>
-</select>
+        <br><br>
 
-<br>
-<br>
+        <form method="get" action="index.php">
+            <input type="text" name="places" value="0"/>
+        </form>
 
-<input type="text" name="places" value="0"/>
+        <br><br>
 
-<br><br>
+        <form method="get" action="index.php">
+            <label for="case" name='annulation' checked = "checked" >Assurance annulation</label><input type="checkbox" name="assurance" id="case" />
+        </form>
 
-<label for="case" name='annulation' checked = "checked" >Assurance annulation</label><input type="checkbox" name="assurance" id="case" />
+        <br><br>
 
-<br><br>
+        <form method="get" action="index.php">
+            <input type="submit" value="Etape suivante"/>
+        </form>
 
-<input type="submit" value="Etape suivante" name="passager"/>
+        <form method="post" action="index.php">
+            <input type="submit" value="Annuler la reservation"/>
+        </form>
 
-</form>
-
-<form method="post" action="annulation.php">
-<input type="submit" value="Annuler la reservation" name='annuler'/>
-</form>
+		<input type="hidden" name="page" value="ctrlinfo">
