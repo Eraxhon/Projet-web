@@ -1,1 +1,1 @@
-VUE
+VUE passagers
