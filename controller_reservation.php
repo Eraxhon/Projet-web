@@ -1,44 +1,35 @@
 <?php
-$_SESSION['dest']=unserialize($destination);
-    var_dump($_POST);
-if(isset($_POST['destination'])
-{
-    $destination = $_POST['destination'];
-    settype($_POST['destination'], "string");
+include "travel.php";
+$information = unserialize($_SESSION['dest']);
+
+if (isset($_GET['destination']) && $_GET['places']>0 && isset($_GET['next_step'])) {
+    if(isset($_GET['insurance'])) {
+        $information->set_destination($_GET['destination']);
+        $information->set_places($_GET['places']);
+        $information->insurance_true();
+    }
+
+    else {
+        $information->set_destination($_GET['destination']);
+        $information->set_places($_GET['places']);
+        $information->insurance_false();
+    }
+
+    $_SESSION['dest'] = serialize($information);
+    include('passengers.php');
 }
 
-else()
-{
-    $destination->set_sentence();
+else if (isset($_GET['cancel'])) {
+    $information->set_sentence();
+    $_SESSION['dest'] = serialize($information);
+    include('reservation.php');
 }
 
-if(isset($_POST['place']))
-{
-    $places = $_POST['place'];
-    settype($_POST['place'], "integer");
-
-    $destination->set_places($places);
+else {
+    $information->set_sentence();
+    $_SESSION['dest'] = serialize($information);
+    include('reservation.php');
 }
 
-else()
-{
-    $destination->set_sentence();
-
-}
-
-if(isset($_POST['insurance'])
-{
-    $destination->insurance_true();
-}
-
-else
-{
-    $destination->insurance_false();
-}*/
-
-$_SESSION['dest'] = serialise($destination);
-
-include ('reservation.php')
-include('passagers.php')
-
+$_SESSION['dest'] = serialize($information);
 ?>

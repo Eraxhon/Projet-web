@@ -1,18 +1,23 @@
-<?php $destination=unserialize($_SESSION['dest']) ?>
+<?php $information=unserialize($_SESSION['dest']) ?>
 <p>
         RESERVATION
-        <br><br>
+        <br>
+        <font color="red">
+        <?php 
+        echo($information->get_sentence());
+        ?>
+        </font>
+        
+        <br>
+
         Le prix de la place est de 10 euros jusqu'a 12 ans et puis 15 euros.
+
         <br><br>
+
         Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
 </p>
 
-        <?php 
-        $destination->get_sentence();
-        
-        ?>
-        
-        <form method="post" action="index.php?page=controller_confirmation.php">
+        <form method="get" action="index.php?page=controller_confirmation.php">
 
            <select name="destination">
                 <option value="Berlin">Berlin</option>
@@ -22,10 +27,9 @@
             </select>
 
         <br><br>
+        <p> Nombre de passagers : <input type="text" name="places"/> </p>
 
-                <input type="text" name="places"/>
-
-        <br><br>
+        <br>
 
             <label for="case" name='cancel' checked = "checked" >Assurance annulation</label><input type="checkbox" name="insurance" id="case" />
 
@@ -36,3 +40,6 @@
 
             <input type="submit" name="cancel" value="Annuler la reservation"/>
         </form>
+
+
+<?php $_SESSION['dest'] = serialize($information) ?>
