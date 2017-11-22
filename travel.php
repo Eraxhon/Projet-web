@@ -70,5 +70,4 @@ public function get_sentence()
     return $this->sentence;
 }
 
-
 }

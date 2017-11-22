@@ -15,7 +15,7 @@ class new_client
 
 	public function add_client($firstName, $lastName, $age)
 	{
-		$new_client=array();
+		$new_client = array();
 		$new_client[] = $this->number;
 		$new_client[] = $firstName; //deuxième élément de la liste sera le prénom du client
 		$new_client[] = $lastName; //troisième élément de la liste sera le nom de famille du client
@@ -34,19 +34,19 @@ class new_client
 		return $this->sentence;
 	}
 
-	public function get_client($num_client)
+	public function size_client()
 	{
-		var_dump($this->clients[$num_client]); //accès à la liste des infos du client nr num_client
-	}
-
-	public function get_firstname($num_client)
-	{
-		var_dump($this->clients[$num_client][1]);
+		return count($this->clients);
 	}
 
 	public function get_number()
 	{
 		return $this->number;
+	}
+
+	public function get_clients()
+	{
+		return $this->clients;
 	}
 
 //var_dump($nombres[1]); accès direct à l'élément en position 1
