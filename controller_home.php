@@ -1,5 +1,4 @@
 <?php
-session_destroy();
 include ("travel.php") ;
 $information = new information();
 $_SESSION['dest'] = serialize($information);

@@ -1,9 +1,9 @@
 <?php
 include "client.php";
-include "travel.php";
+//include "travel.php";
 $new_client = unserialize($_SSESSION['client']);
 
-var_dump($_GET)
+var_dump($_GET);
 //recuperer le nombre de clients
 
 
@@ -11,7 +11,7 @@ var_dump($_GET)
 
 //1. récupérer les valeurs (au début; pas de valeurs donc on met juste passengers)
 
-if (isset($_GET['age']) && isset($_GET['firstName']) && isset($_GET['lastName'])) {
+if (isset($_GET['age']) && isset($_GET['firstName']) && isset($_GET['lastName']) && isset($_GET['next_step'])) {
 	while($new_client->$number<=$information->$places);
 		$new_client->add_client($_GET['firstName'], $_GET['lastName'], $_GET['age']); //appelle la fonction pour ajouter un client
 		$_SESSION['client'] = serialize($new_client);

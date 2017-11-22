@@ -31,5 +31,4 @@ else {
     include('reservation.php');
 }
 
-$_SESSION['dest'] = serialize($information);
 ?>

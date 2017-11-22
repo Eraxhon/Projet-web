@@ -1,22 +1,22 @@
-<?php include "travel.php";
-include "client.php"; ?>
-<?php $information=unserialize($_SESSION['dest']) ?>
-<?php $new_client=unserialize($_SESSION['client']) ?>
+<?php //$information=unserialize($_SESSION['dest']);
+include('client.php');
+$new_client=unserialize($_SESSION['client']); ?>
 
-PASSAGER NUMERO <?php echo($information->get_places()); ?>
+PASSAGER <?php echo($new_client->get_number()); ?>
+
+<br><br>
 
 <?php echo($new_client->get_sentence()); ?>
 
-<form method="get" action="index.php?page=controller_passenger.php">
+<form method="get" action="index.php?page=passenger">
 
     <p>Nom       <input type="text" name="firstName"/></p>
-    <p>Prenom       <input type="text" name="lastName"/></p> 
+    <p>Prenom    <input type="text" name="lastName"/></p> 
     <p>Age       <input type="text" name="age"/></p> 
 
 
     <input type="submit" name="next_step" value="Etape suivante"/>
+</form>
 
-    </form>
-
-<?php $_SESSION['dest'] = serialize($information) ?>
-<?php $_SESSION['client'] = serialize($new_client) ?>
+<?php //$_SESSION['dest'] = serialize($information)
+ $_SESSION['client'] = serialize($new_client) ?>

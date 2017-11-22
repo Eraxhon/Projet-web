@@ -3,9 +3,11 @@
         RESERVATION
         <br>
         <font color="red">
+
         <?php 
         echo($information->get_sentence());
         ?>
+
         </font>
         
         <br>
@@ -17,7 +19,7 @@
         Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
 </p>
 
-        <form method="get" action="index.php?page=controller_confirmation.php">
+        <form method="get" action="index.php?page=confirmation">
 
            <select name="destination">
                 <option value="Berlin">Berlin</option>
@@ -27,6 +29,7 @@
             </select>
 
         <br><br>
+        
         <p> Nombre de passagers : <input type="text" name="places"/> </p>
 
         <br>
@@ -40,6 +43,5 @@
 
             <input type="submit" name="cancel" value="Annuler la reservation"/>
         </form>
-
 
 <?php $_SESSION['dest'] = serialize($information) ?>

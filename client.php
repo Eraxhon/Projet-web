@@ -29,6 +29,11 @@ class new_client
 		$this->sentence = "Veuillez entrer tous les paramètres.";
 	}
 
+	public function get_sentence()
+	{
+		return $this->sentence;
+	}
+
 	public function get_client($num_client)
 	{
 		var_dump($this->clients[$num_client]); //accès à la liste des infos du client nr num_client
@@ -37,6 +42,11 @@ class new_client
 	public function get_firstname($num_client)
 	{
 		var_dump($this->clients[$num_client][1]);
+	}
+
+	public function get_number()
+	{
+		return $this->number;
 	}
 
 //var_dump($nombres[1]); accès direct à l'élément en position 1
