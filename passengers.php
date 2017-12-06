@@ -1,9 +1,18 @@
-<?php //$information=unserialize($_SESSION['dest']);
+<?php
 include_once('client.php');
 $new_client=unserialize($_SESSION['client']); ?>
 
-PASSAGER <?php echo($new_client->get_number()); ?>
+<!DOCTYPE html>
+<html lang='fr'>
 
+<head>
+	<meta charset="UTF-8">
+	<title>	PASSAGERS</title>
+	PASSAGER <?php echo($new_client->get_number()); ?>
+	<link rel="stylesheet" type="text/css" href="passengerss.css">
+</head>
+
+<body>
 <br><br>
 
 <?php echo($new_client->get_sentence()); ?>
@@ -18,5 +27,6 @@ PASSAGER <?php echo($new_client->get_number()); ?>
     <input type="submit" name="next_step" value="Etape suivante"/>
 </form>
 
-<?php //$_SESSION['dest'] = serialize($information)
- $_SESSION['client'] = serialize($new_client) ?>
+</body>
+
+<?php $_SESSION['client'] = serialize($new_client) ?>

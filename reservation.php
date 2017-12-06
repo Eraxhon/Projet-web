@@ -1,23 +1,30 @@
-<?php $information=unserialize($_SESSION['dest']) ?>
-<p>
-        RESERVATION
+<?php $information = unserialize($_SESSION['dest']) ?>
+
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+    <mega charset='UTF-8'>
+    <link rel="stylesheet" type="text/css" href="reservationn.css">
+    <title>RESERVATION</title>
+    RESERVATION
+<head>
+
+<body>
+
         <br>
-        <font color="red">
-
-        <?php 
-        echo($information->get_sentence());
-        ?>
-
-        </font>
+<div id="contenu">
+        <h5> <?php echo($information->get_sentence())?> </h5>
         
         <br>
 
+        <h6>
         Le prix de la place est de 10 euros jusqu'a 12 ans et puis 15 euros.
 
         <br><br>
 
         Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
-</p>
+
+        <br><br>
 
         <form method="get" action="index.php?page=confirmation">
 
@@ -43,5 +50,11 @@
 
             <input type="submit" name="cancel" value="Annuler la reservation"/>
         </form>
+        </h6>
+    </div>
+
+</body>
+
+</html>
 
 <?php $_SESSION['dest'] = serialize($information) ?>
