@@ -1,5 +1,4 @@
 <?php $information = unserialize($_SESSION['dest']);
-//include('client.php');
 $new_client = unserialize($_SESSION['client']); ?>
 
 <!DOCTYPE html>
@@ -21,12 +20,18 @@ $new_client = unserialize($_SESSION['client']); ?>
 <tr> <td>Nombre de places</td> <td> <?php echo($information->get_places()); ?> </td></tr>
 <br>
 
-<tr> <td>Nom</td> <td>
 <?php
 for ($i = 0 ; $i < $information->get_places() ; $i++)
+	var_dump($new_client);
+	echo("<br>");
+	var_dump($i);
+
+	print_r("<tr> <td>Nom</td> <td>");
     echo($new_client->get_names($i));
-    ?>
-</td></tr>
+	print_r("</td></tr><br><tr> <td>Age</td> <td>");
+	echo($new_client->get_age($i));
+	print_r("</td></tr>");
+?>
 
 </table>        
 </body>

@@ -10,7 +10,6 @@ if (isset($_GET['age']) && isset($_GET['firstName']) && isset($_GET['lastName'])
 	// Si tout est set -> on met toutes les infos dans la liste.
 	$new_client->add_client($_GET['firstName'], $_GET['lastName'], $_GET['age']);
 	$_SESSION['client'] = serialize($new_client);
-	//var_dump($new_client->size_client());
 	
 	//Si on a pas encore assez de passagers; on remet une page passagers
 	if($new_client->get_number() <= (int) $information->get_places()) {	

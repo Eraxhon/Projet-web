@@ -48,13 +48,16 @@ class new_client
 
 	public function get_names($i)
 	{
-		//print_r($i);
+		print_r($this->clients);
 		print_r($this->clients[$i][1]);
 		print_r(" ");
 		print_r($this->clients[$i][2]);
 		print_r("<br>");
-		//print_r($this->clients);
-		//return $this->clients[$chiffre[3]] + $this->clients[$chiffre[4]]; // va dans le "chiffre"tième élément (le numerotième client) et prend les éléments 3 et 4 qui sont le prénom et le com des clients
+	}
+
+	public function get_age($i)
+	{
+		print_r($this->clients[$i][3]);
 	}
 
 	public function get_ID() //utilisé?
