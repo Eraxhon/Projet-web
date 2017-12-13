@@ -7,6 +7,7 @@ private $destination;
 private $places;
 private $insurance;
 private $sentence;
+private $ID;
 
 public function __construct()
 {
@@ -14,6 +15,7 @@ public function __construct()
     $this->places = 0;
     $this->insurance = false;
     $this->sentence = "";
+    $this->ID = 1;
 }
 
 public function get_insurance($insurance)
@@ -21,7 +23,7 @@ public function get_insurance($insurance)
     return $this->insurance;
 }
 
-public function get_destination($destination)
+public function get_destination()
 {
     return $this->destination;
 }
@@ -68,6 +70,16 @@ public function set_sentence()
 public function get_sentence()
 {
     return $this->sentence;
+}
+
+public function get_ID()
+{
+    return $this->ID;
+}
+
+public function incr_ID()
+{
+    $this->ID = $this->ID + 1;
 }
 
 }

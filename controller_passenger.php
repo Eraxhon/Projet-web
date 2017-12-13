@@ -6,11 +6,20 @@ $information = unserialize($_SESSION['dest']);
 
 
 if (isset($_GET['age']) && isset($_GET['firstName']) && isset($_GET['lastName']) && isset($_GET['next_step'])) {
-	if($new_client->size_client()+1 < (int) $information->get_places()) {
-		$new_client->add_client($_GET['firstName'], $_GET['lastName'], $_GET['age']); //appelle la fonction pour ajouter un client
-		$_SESSION['client'] = serialize($new_client);
-		var_dump($new_client->size_client());
+	
+	// Si tout est set -> on met toutes les infos dans la liste.
+	$new_client->add_client($_GET['firstName'], $_GET['lastName'], $_GET['age']);
+	$_SESSION['client'] = serialize($new_client);
+	//var_dump($new_client->size_client());
+	
+	//Si on a pas encore assez de passagers; on remet une page passagers
+	if($new_client->get_number() <= (int) $information->get_places()) {	
 		include('passengers.php');
+	}
+
+	//Sinon, on met Validation 
+	else{
+		include('validation.php');
 	}
 }
 

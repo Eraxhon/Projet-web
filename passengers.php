@@ -1,6 +1,9 @@
 <?php
 include_once('client.php');
-$new_client=unserialize($_SESSION['client']); ?>
+$new_client=unserialize($_SESSION['client']); 
+?>
+
+
 
 <!DOCTYPE html>
 <html lang='fr'>
