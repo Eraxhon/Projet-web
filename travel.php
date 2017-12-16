@@ -13,14 +13,23 @@ public function __construct()
 {
     $this->destination = "";
     $this->places = 0;
-    $this->insurance = false;
+    $this->insurance = "NON";
     $this->sentence = "";
     $this->ID = 1;
 }
 
-public function get_insurance($insurance)
+public function reset_information()
 {
-    return $this->insurance;
+    $this->destination = "";
+    $this->places = 0;
+    $this->insurance = "NON";
+    $this->sentence = "";
+    $this->ID = 1;
+}
+
+public function get_insurance()
+{
+    return($this->insurance);
 }
 
 public function get_destination()
@@ -45,14 +54,12 @@ public function get_places()
 
 public function insurance_false()
 {
-    settype($insurance, "bool");
-    $this->insurance = false;
+    $this->insurance = "NON";
 }
 
 public function insurance_true()
 {
-    settype($insurance, "bool");
-    $this->insurance = true;
+    $this->insurance = "OUI";
 }
 
 public function cancel()

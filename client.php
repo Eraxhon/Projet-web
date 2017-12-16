@@ -17,13 +17,46 @@ class new_client
 
 	public function add_client($firstName, $lastName, $age)
 	{
+		$this->number = $this->number + 1;
 		$new_client = array();			//création d'un tableau
 		$new_client[] = $this->ID;			//premier élément de la table sera l'ID de la réservation
 		$new_client[] = $firstName; 	//deuxième élément de la table sera le prénom du client
 		$new_client[] = $lastName; 		//troisième élément de la table sera le nom de famille du client
 		$new_client[] = $age;			//quatrième élément de la table sera l'age du client
 		$this->clients[] = $new_client; //met la liste des infos du client dans la liste this->client comme ca on aura une table de table avec 								comme premier élément "client 1" puis "client 2" puis "client 3"...
-		$this->number = $this->number + 1;
+	}
+
+	public function get_price($insurance)
+	{
+		$price = 0;
+		for ($i = 0 ; $i < count($this->clients) ; $i++)
+		{
+			if($this->clients[$i][3] <= 12)
+			{
+				$price += 10;
+			}
+
+			else
+			{
+				$price += 15;
+			}
+		}
+
+		if($insurance == "OUI")
+			{
+				$price += 20;
+			}
+
+		$price += 0;
+		return $price;
+	}
+
+	public function reset_client()
+	{
+		$this->clients = array();
+    	$this->number = 1;
+    	$this->sentence = "";
+    	$this->ID = 1;
 	}
 
 	public function set_sentence()
@@ -48,7 +81,6 @@ class new_client
 
 	public function get_names($i)
 	{
-		print_r($this->clients);
 		print_r($this->clients[$i][1]);
 		print_r(" ");
 		print_r($this->clients[$i][2]);

@@ -3,31 +3,34 @@
 <!DOCTYPE html>
 <html lang='fr'>
 <head>
-    <mega charset='UTF-8'>
+    <meta charset='UTF-8'>
     <link rel="stylesheet" type="text/css" href="reservationn.css">
-    <title>RESERVATION</title>
+    <title style="text-align:center;">RESERVATION</title>
     RESERVATION
-<head>
+</head>
 
 <body>
 
         <br>
-<div id="contenu">
+    <div id="contenu">
         <h5> <?php echo($information->get_sentence())?> </h5>
         
         <br>
 
         <h6>
-        Le prix de la place est de 10 euros jusqu'a 12 ans et puis 15 euros.
+        Le prix de la place est de &#8364;10 jusqu'à 12 ans et puis &#8364;15.
 
         <br><br>
 
-        Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
+        Le prix de l'assurance annulation est de &#8364;20 quel que soit le nombre de voyageurs.
 
         <br><br>
+        <table width="30%" border ="1" cellspacing="1" cellpadding="10">
+            <tr><td><div>
 
         <form method="get" action="index.php?page=confirmation">
 
+           Destination : 
            <select name="destination">
                 <option value="Berlin">Berlin</option>
                 <option value="Amsterdam">Amsterdam</option>
@@ -42,6 +45,7 @@
         <br>
 
             <label for="case" name='cancel' checked = "checked" >Assurance annulation</label><input type="checkbox" name="insurance" id="case" />
+            </div></td><tr></table>
 
         <br><br>
 

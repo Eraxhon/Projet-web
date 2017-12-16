@@ -4,7 +4,7 @@ $new_client = unserialize($_SESSION['client']); ?>
 <!DOCTYPE html>
 <html lang='fr'>
 <head>
-    <mega charset='UTF-8'>
+    <meta charset='UTF-8'>
     <link rel="stylesheet" type="text/css" href="validation.css">
     <title>VALIDATION</title>
     VALIDATION DES RESERVATIONS
@@ -13,7 +13,7 @@ $new_client = unserialize($_SESSION['client']); ?>
     <br><br>
 
 <body>
-<table> 
+<table>
 
 <tr> <td>Destination</td> <td> <?php echo($information->get_destination()); ?> </td></tr>
 <br>
@@ -21,19 +21,29 @@ $new_client = unserialize($_SESSION['client']); ?>
 <br>
 
 <?php
-for ($i = 0 ; $i < $information->get_places() ; $i++)
-	var_dump($new_client);
-	echo("<br>");
-	var_dump($i);
-
+for ($i = 0 ; $i < $information->get_places() ; $i++) 
+{
 	print_r("<tr> <td>Nom</td> <td>");
     echo($new_client->get_names($i));
 	print_r("</td></tr><br><tr> <td>Age</td> <td>");
 	echo($new_client->get_age($i));
 	print_r("</td></tr>");
+}
 ?>
 
-</table>        
+<br>
+<tr> <td>Assurance annulation</td> <td> <?php print_r($information->get_insurance()); ?> </td></tr>
+</table>
+
+<br>
+
+<form>
+<input type="hidden" name="page" value="validation">
+<input type="submit" name="confirmation" value="Confirmation"/>
+<input type="submit" name="cancel" value="Annuler la reservation"/>
+<input type="submit" name="back" value="Retour a la page precedente"/>
+</form>
+
 </body>
 
 </html>
