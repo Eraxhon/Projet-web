@@ -5,28 +5,32 @@ class new_client
 	private $clients;
 	private $number;
 	private $sentence;
-	private $ID;
 
 	public function __construct()
 	{
     	$this->clients = array();
     	$this->number = 1;
     	$this->sentence = "";
-    	$this->ID = 1;
 	}
 
-	public function add_client($firstName, $lastName, $age)
+	/**
+	* Adds an array new_client[] in the array clients for each new client + increments the variable number with 1
+	*/
+	public function addClient($firstName, $lastName, $age)
 	{
+		$new_client = array();
+		$new_client[] = $firstName;
+		$new_client[] = $lastName;
+		$new_client[] = $age;
+		$this->clients[] = $new_client;
 		$this->number = $this->number + 1;
-		$new_client = array();			//création d'un tableau
-		$new_client[] = $this->ID;			//premier élément de la table sera l'ID de la réservation
-		$new_client[] = $firstName; 	//deuxième élément de la table sera le prénom du client
-		$new_client[] = $lastName; 		//troisième élément de la table sera le nom de famille du client
-		$new_client[] = $age;			//quatrième élément de la table sera l'age du client
-		$this->clients[] = $new_client; //met la liste des infos du client dans la liste this->client comme ca on aura une table de table avec 								comme premier élément "client 1" puis "client 2" puis "client 3"...
 	}
 
-	public function get_price($insurance)
+	/*
+	* Calculates the price of the travel looking at the customers ages and the insurance
+	* @return the price (int)
+	*/
+	public function getPrice($insurance)
 	{
 		$price = 0;
 		for ($i = 0 ; $i < count($this->clients) ; $i++)
@@ -51,7 +55,10 @@ class new_client
 		return $price;
 	}
 
-	public function reset_client()
+	/*
+	* Reserts the clients contact details
+	*/
+	public function resetClient()
 	{
 		$this->clients = array();
     	$this->number = 1;
@@ -59,50 +66,47 @@ class new_client
     	$this->ID = 1;
 	}
 
-	public function set_sentence()
+	public function setSentence()
 	{
 		$this->sentence = "Veuillez entrer tous les paramètres.";
 	}
 
-	public function get_sentence()
+	public function getSentence()
 	{
-		return $this->sentence;
+		print_r($this->sentence);
 	}
 
-	public function size_client()
-	{
-		return count($this->clients);
-	}
-
-	public function get_number()
+	public function getNumber()
 	{
 		return $this->number;
 	}
 
-	public function get_names($i)
+	/*
+	* Catch the firstname and lastname for each $i
+	* @param int $i the customer
+	* @return "firstname lastname"
+	*/
+	public function getNames($i)
 	{
-		print_r($this->clients[$i][1]);
+		print_r($this->clients[$i][0]);
 		print_r(" ");
-		print_r($this->clients[$i][2]);
+		print_r($this->clients[$i][1]);
 		print_r("<br>");
 	}
 
-	public function get_age($i)
+	/*
+	* Catch the age of each $i
+	* @param int $i the customer
+	* @return "firstname lastname"
+	*/
+	public function getAge($i)
 	{
-		print_r($this->clients[$i][3]);
+		print_r($this->clients[$i][2]);
 	}
 
-	public function get_ID() //utilisé?
+	public function sizeClient()
 	{
-	    return $this->ID;
+		return count($this->clients);
 	}
-
-	public function incr_ID()
-	{
-	    $this->ID = $this->ID + 1;
-	}
-//var_dump($nombres[1]); accès direct à l'élément en position 1
-// print_r($nombres); affichage complet
-
 }
 ?>

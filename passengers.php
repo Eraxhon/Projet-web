@@ -1,35 +1,54 @@
 <?php
-include_once('client.php');
-$new_client = unserialize($_SESSION['client']); 
+  include_once('client.php');
+  $new_client = unserialize($_SESSION['client']); 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang='fr'>
 
-<head>
+  <head>
+
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<title>	PASSAGERS</title>
-	PASSAGER <?php echo($new_client->get_number()); ?>
-	<link rel="stylesheet" type="text/css" href="passengerss.css">
-</head>
 
-<body>
-<br><br>
+  </head>
 
-<?php echo($new_client->get_sentence()); ?>
+  <body> <br>
 
-<form method="get">
+      <h1>PASSAGER <?php echo($new_client->getNumber()); ?></h1>
 
-    <p>Nom       <input type="text" name="firstName"/></p>
-    <p>Prenom    <input type="text" name="lastName"/></p> 
-    <p>Age       <input type="text" name="age"/></p> 
+      <h5>
 
-	<input type="hidden" name="page" value="passenger"/>
-    <input type="submit" name="next_step" value="Etape suivante"/>
-</form>
+  	    <?php
+  	      print_r($new_client->getSentence()) 
+  	    ?>
 
-</body>
+        Veuillez entrer vos coordonnées. Un age négatif sera automatiquement 
+        remplacé par ca valeur absolue.
+  
+      </h5>
 
-<?php $_SESSION['client'] = serialize($new_client) ?>
+    <form method="get">
+
+        <p>
+
+          Nom :       <input type="text" name="firstName"/> <br><br>
+
+          Prenom :   <input type="text" name="lastName"/> <br><br>
+
+          Age :       <input type="number" name="age"/> <br><br>
+
+        </p>
+
+	    <input type="hidden" name="page" value="passenger"/>
+    
+        <input type="submit" name="next_step" value="Etape suivante"/>
+
+    </form>
+
+  </body>
+
+<?php 
+  $_SESSION['client'] = serialize($new_client)
+?>

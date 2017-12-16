@@ -1,0 +1,22 @@
+head{
+	color: #black;
+	background-color: #8FBC8F;
+}
+
+body{
+	background-color: #8FBC8F;
+	font-size: 20px;
+	padding-left: 45px;
+	padding-top : 20px;
+}
+
+h5{
+	color : #FF0000 ;
+	font color : red;
+	color : #FF0000 ;
+}
+
+#contenu{
+	background-color : #8FBC8F;
+	font color : black;
+}

@@ -3,90 +3,86 @@
 class information
 {
 
-private $destination;
-private $places;
-private $insurance;
-private $sentence;
-private $ID;
+    private $destination;
+    private $places;
+    private $insurance;
+    private $sentence;
 
-public function __construct()
-{
-    $this->destination = "";
-    $this->places = 0;
-    $this->insurance = "NON";
-    $this->sentence = "";
-    $this->ID = 1;
-}
+    public function __construct()
+    {
+        $this->destination = "";
+        $this->places = 0;
+        $this->insurance = "NON";
+        $this->sentence = "";
+    }
 
-public function reset_information()
-{
-    $this->destination = "";
-    $this->places = 0;
-    $this->insurance = "NON";
-    $this->sentence = "";
-    $this->ID = 1;
-}
+    /*
+    * Reserts the clients contact details
+    */
+    public function resetInformation()
+    {
+        $this->destination = "";
+        $this->places = 0;
+        $this->insurance = "NON";
+        $this->sentence = "";
+    }
 
-public function get_insurance()
-{
-    return($this->insurance);
-}
+    public function getInsurance()
+    {
+        return($this->insurance);
+    }
 
-public function get_destination()
-{
-    return $this->destination;
-}
+    public function getDestination()
+    {
+        return $this->destination;
+    }
 
-public function set_destination($destination)
-{
-        $this->destination = $destination;
-}
+    public function setDestination($destination)
+    {
+            $this->destination = $destination;
+    }
 
-public function set_places($places)
-{
-        $this->places = $places;
-}
+    public function setPlaces($places)
+    {
+            $this->places = $places;
+    }
 
-public function get_places()
-{
-    return $this->places;
-}
+    public function getPlaces()
+    {
+        return $this->places;
+    }
 
-public function insurance_false()
-{
-    $this->insurance = "NON";
-}
+    /*
+    * Assigns the string "NON" to $this->insurance
+    */
+    public function insuranceFalse()
+    {
+        $this->insurance = "NON";
+    }
 
-public function insurance_true()
-{
-    $this->insurance = "OUI";
-}
+    /*
+    * Assigns the string "OUI" to $this->insurance
+    */
+    public function insuranceTrue()
+    {
+        $this->insurance = "OUI";
+    }
 
-public function cancel()
-{
-    $this->destination = "";
-    $this->places = 0;
-    $this->insurance = false;
-}
+    public function cancel()
+    {
+        $this->destination = "";
+        $this->places = 0;
+        $this->insurance = false;
+    }
 
-public function set_sentence()
-{
-    $this->sentence = "<br>Veuillez entrer un nombre de passagers.<br>";
-}
+    public function setSentence()
+    {
+        $this->sentence = "<br>Veuillez entrer un nombre de passagers.<br>";
+    }
 
-public function get_sentence()
-{
-    return $this->sentence;
-}
-
-public function get_ID()
-{
-    return $this->ID;
-}
-
-public function incr_ID()
-{
-    $this->ID = $this->ID + 1;
-}
+    public function getSentence()
+    {
+        return $this->sentence;
+    }
 
 }

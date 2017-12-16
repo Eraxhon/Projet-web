@@ -1,64 +1,87 @@
-<?php $information = unserialize($_SESSION['dest']) ?>
+<?php 
+$information=unserialize($_SESSION['dest']);
+?>
 
 <!DOCTYPE html>
-<html lang='fr'>
-<head>
-    <meta charset='UTF-8'>
-    <link rel="stylesheet" type="text/css" href="reservationn.css">
-    <title style="text-align:center;">RESERVATION</title>
-    RESERVATION
-</head>
+<html lang="fr">
 
-<body>
+  <head>
 
-        <br>
-    <div id="contenu">
-        <h5> <?php echo($information->get_sentence())?> </h5>
-        
-        <br>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <title>RESERVATION</title>
 
-        <h6>
-        Le prix de la place est de &#8364;10 jusqu'à 12 ans et puis &#8364;15.
+  </head>
 
-        <br><br>
+  <body>
 
-        Le prix de l'assurance annulation est de &#8364;20 quel que soit le nombre de voyageurs.
+    <h1 style="text-align: center;">RESERVATION</h1> <br>
 
-        <br><br>
-        <table width="30%" border ="1" cellspacing="1" cellpadding="10">
-            <tr><td><div>
+      <h5> <?php print_r($information->getSentence()) ?> </h5>
 
-        <form method="get" action="index.php?page=confirmation">
+        <div id="contenu">
 
-           Destination : 
-           <select name="destination">
-                <option value="Berlin">Berlin</option>
-                <option value="Amsterdam">Amsterdam</option>
-                <option value="Barcelone">Barcelone</option>
-                <option value="Bruxelles">Bruxelles</option>
-            </select>
+          <h6>
 
-        <br><br>
-        
-        <p> Nombre de passagers : <input type="text" name="places"/> </p>
+            Le prix de la place est de &#8364;10 jusqu'à 12 ans et puis &#8364;15.<br><br>
+            Le prix de l'assurance annulation est de &#8364;20 quel que soit le nombre de 
+            voyageurs.<br><br>
 
-        <br>
+          </h6>
+            
+          <form method="get" action="index.php?page=confirmation">
+            <table width="30%" border="1" cellspacing="1" cellpadding="10">
+              <tr>
+                <td>
+                  <div>
 
-            <label for="case" name='cancel' checked = "checked" >Assurance annulation</label><input type="checkbox" name="insurance" id="case" />
-            </div></td><tr></table>
+                  
+                    
+                      Destination : 
+                    
+                      <select name="destination">
+                    
+                        <option value="Berlin">Berlin</option>
+                    
+                        <option value="Amsterdam">Amsterdam</option>
+                    
+                        <option value="Barcelone">Barcelone</option>
+                    
+                        <option value="Bruxelles">Bruxelles</option>
+                    
+                      </select> <br><br>
 
-        <br><br>
+                      <p> 
+
+                        Nombre de passagers : 
+                        <input type="number" name="places" step="1" min="0" max="100"/> 
+
+                      </p> <br>
+
+                      <label for="case" name="cancel" checked="checked" >Assurance annulation</label>
+
+                      <input type="checkbox" name="insurance" id="case" />
+                  </div>
+                </td>
+              <tr>
+            </table> <br><br>
 
             <input type="submit" name="next_step" value="Etape suivante"/>
+  
             <input type="hidden" name="page" value="reservation">
 
             <input type="submit" name="cancel" value="Annuler la reservation"/>
-        </form>
-        </h6>
-    </div>
+            
+          </form>
 
-</body>
+          </h6>
+
+        </div>
+
+  </body>
 
 </html>
 
-<?php $_SESSION['dest'] = serialize($information) ?>
+<?php
+  $_SESSION["dest"]=serialize($information);
+?>
