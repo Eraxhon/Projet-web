@@ -5,16 +5,16 @@ if (isset($_GET['destination']) && isset($_GET['places']) && isset($_GET['next_s
 {
 	if(isset($_GET['insurance'])) 
 	{
-		$destination->setDestination($_GET['destination']);
-		$destination->setPlaces($_GET['places']);
-		$destination->insuranceTrue();
+		$information->setDestination($_GET['destination']);
+		$information->setPlaces($_GET['places']);
+		$information->insuranceTrue();
 	}
 
 	else
 	{
-		$destination->setDestination($_GET['destination']);
-		$destination->setPlaces($_GET['places']);
-		$destination->insuranceFalse();
+		$information->setDestination($_GET['destination']);
+		$information->setPlaces($_GET['places']);
+		$information->insuranceFalse();
 	}
 	$_SESSION['dest'] = serialize($destination);
 	include('passengers.php');
@@ -28,7 +28,7 @@ else if (isset($_GET['cancel']))
 
 else 
 {
-	$destination->setSentence();
+	$information->setSentence();
 	$_SESSION['dest'] = serialize($destination);
 	include('reservation.php');
 }

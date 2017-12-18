@@ -1,6 +1,6 @@
 <?php
   include_once('client.php');
-  $new_client = unserialize($_SESSION['client']); 
+  $new_client=unserialize($_SESSION['client']); 
 ?>
 
 <!DOCTYPE html>
@@ -14,18 +14,21 @@
 
   </head>
 
-  <body> <br>
+  <body style="text-align: center;"> <br>
 
       <h1>PASSAGER <?php echo($new_client->getNumber()); ?></h1>
+
+      <div id="contenu">
+
+        Veuillez entrer les coordonnées du passager nr <?php echo($new_client->getNumber()); ?>.<br> Un age négatif sera automatiquement remplacé par sa valeur absolue.
+
+      </div>
 
       <h5>
 
   	    <?php
-  	      print_r($new_client->getSentence()) 
+  	      echo($new_client->getSentence());
   	    ?>
-
-        Veuillez entrer vos coordonnées. Un age négatif sera automatiquement 
-        remplacé par ca valeur absolue.
   
       </h5>
 
@@ -50,5 +53,5 @@
   </body>
 
 <?php 
-  $_SESSION['client'] = serialize($new_client)
+  $_SESSION['client']=serialize($new_client)
 ?>

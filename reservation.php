@@ -13,29 +13,27 @@ $information=unserialize($_SESSION['dest']);
 
   </head>
 
-  <body>
+  <body style="text-align: center;">
 
-    <h1 style="text-align: center;">RESERVATION</h1> <br>
-
-      <h5> <?php print_r($information->getSentence()) ?> </h5>
+    <h1>RESERVATION</h1> <br>
 
         <div id="contenu">
 
-          <h6>
-
-            Le prix de la place est de &#8364;10 jusqu'à 12 ans et puis &#8364;15.<br><br>
+            Bienvenue sur votre site de réservation d'avion. Veuillez entrer les champs suivants afin de commencer votre réservation.<br> Ensuite, appuier sur "Etape suivante" pour enregistrer vos coordonnées.<br> Le prix de la place est de &#8364;10 jusqu'à 12 ans et puis &#8364;15.<br>
             Le prix de l'assurance annulation est de &#8364;20 quel que soit le nombre de 
             voyageurs.<br><br>
 
-          </h6>
+        </div>
+
+          <h5> <?php echo($information->getSentence()) ?> </h5>
+
+        <div id="contenu">
             
           <form method="get" action="index.php?page=confirmation">
-            <table width="30%" border="1" cellspacing="1" cellpadding="10">
+            <table align="center" width="30%" border="1" cellspacing="1" cellpadding="10">
               <tr>
                 <td>
                   <div>
-
-                  
                     
                       Destination : 
                     
