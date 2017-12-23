@@ -1,52 +1,39 @@
-<?php
+<!DOCTYPE html>
+<html lang='fr'>
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname = "Reservations";
+  <head>
 
-	$conn = new mysqli($servername,$username, $password, $dbname);
+    <title>ADMIN</title>
+    <meta charset='UTF-8'>
 
-	if($conn->connect_error)
-	{
-		die("Connection failed : ".$conn->connect_error);
-	}
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/test.css">
+  
+  </head> <br><br>
 
-	//Select all from 'groupe' table
-	$query = "SELECT * FROM groupe";
+  <body style="text-align: center;">
 
-	$result = $conn->query($query) or die("Query1 failed ");
+    <h1>
 
-	if ($result->num_rows == 0) 
-	{
-		echo "Aucune ligne trouvée, rien à afficher."; exit;
-	}
+      <span class="yellow">ADMIN</pan>
 
-	//Select all from 'information' table
-	$query = "SELECT * FROM information";
+    </h1>
 
-	$result = $conn->query($query) or die("Query2 failed ");
+    <h2>
 
-	if ($result->num_rows == 0) 
-	{
-		echo "Aucune ligne trouvée, rien à afficher."; exit;
-	}
+      Voici l'ensemble des réservations effectuées. Nous pouvez les modifier et les supprimer.
 
-	// Affichage des entêtes de colonnes
-	echo "<table>\n<tr>";
-	while ($finfo = $result->fetch_field())
-	{ echo '<th>'. $finfo->name .'</th>'; } echo "</tr>\n";
+    </h2>
 
-	// Afficher des résultats en HTML
-	while ($line = $result->fetch_assoc()) { echo "\t<tr>\n";
-	foreach ($line as $col_value) {
-	echo "\t\t<td>$col_value</td>\n"; }
-	echo "\t</tr>\n"; }
-	echo "</table>\n";
-	// Récupération du résultat sous forme d'un tableau associatif
-	$result = $conn->query($query) or die("Query failed"); 
-	while ($line = $result->fetch_array(ID_groupe))
-	{
-	echo $line['lastname'].'<BR>'; 
-	}
-?>
+	<table class="container">
+
+	  <tbody>
+
+    	<?php echo "$table" ?>
+
+      </tbody>
+
+	</table>
+
+  </body>
+
+</html>

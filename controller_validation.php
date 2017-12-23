@@ -13,11 +13,12 @@ if (isset($_GET['back']))
 
 /*
 If the 'cancel' button is pressed :
-Reserts each variable's values  in the classes 'information' and 'new_client'
+Resets each variable's values  in the classes 'information' and 'new_client'
 Includes the home page
 */
 elseif (isset($_GET['cancel']))
 {
+	//faudrait dropp info
 	$information->resetInformation();
 	$new_client->resetClient();
 	include("./templates/reservation.php");
@@ -25,14 +26,16 @@ elseif (isset($_GET['cancel']))
 
 elseif (isset($_GET['confirmation']))
 {
+	//nessessary to set the parameter 'price' in the class
+	$new_client->getPrice($information->getInsurance());
 
-		//Fill in the database
+		//Connection to the database
 		$servername="localhost";
 		$username="root";
 		$password="root";
 		$dbname="Reservations";
 
-		$conn = new mysqli($servername,$username, $password, $dbname);
+		$conn = new mysqli($servername, $username, $password, $dbname);
 
 		if($conn->connect_error)
 		{
@@ -40,48 +43,23 @@ elseif (isset($_GET['confirmation']))
 		}
 
 		//Fill in the table 'groupe' (only once because same info for each passenger)
+		$dest=$information->getDestination(0);
+		$total=$new_client->getTotal(0);
+		$insurance=$information->getInsurance(0);
 
-			$i=0;
-			$dest=$information->getDestination($i);
-			$total=$new_client->getTotal($i);
-			$insurance=$information->getInsurance($i);
+		$sql="INSERT INTO groupe (Destination, Prix, Assurance) VALUES('".$dest ."', ".$total .", '".$insurance ."')";
+		$conn->query($sql);
+		$ID_insert = $conn->insert_id;
 
-			$sql="INSERT INTO groupe (Destination, Prix, Assurance) VALUES('".$dest ."', '".$total ."', '".$insurance ."')";
-
-		/*if ($conn->query($sql)===TRUE) 
-		{
-			echo "New record created successfully";
-		}*/
-
-		if($conn->query($sql)!=TRUE) 
-		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
-		}
-
-		//Error if not succeeded
-		else 
-		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
-		}
-
-		//Fill in the table 'information'
-		for($i=0; $i<count($new_client->getClients()); $i++)
+		//Fill in the table 'information' (one line per passenger)
+		for($i=0; $i<(count($new_client->getClients())); $i++)
 		{
 			$name=$new_client->getNames($i);
 			$age=$new_client->getAge($i);
-			$sql="INSERT INTO information (ID_groupe, Noms, Age) VALUES('".$ID_insert ."', '".$name ."', '".$age ."')";
+			$sql="INSERT INTO information (ID_groupe, Noms, Age) VALUES('".$ID_insert ."', '".$name ."', ".$age .")";
+			$conn->query($sql);
 		}
-
-		/*if ($conn->query($sql)===TRUE) 
-		{
-			echo "New record created successfully";
-		}*/
-
-		if($conn->query($sql)!=TRUE) 
-		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
-		}
-
+		
 		$conn->close();
 
 		//end database

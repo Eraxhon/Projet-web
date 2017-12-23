@@ -8,29 +8,35 @@
 
   <head>
 
+  <title>PASSAGERS</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
-	<title>	PASSAGERS</title>
 
-  </head>
+	<link rel="stylesheet" type="text/css" href="./css/test.css">
+
+  </head> <br><br>
 
   <body style="text-align: center;"> <br>
 
-      <h1>PASSAGER <?php echo($new_client->getNumber()); ?></h1>
+      <h1>
 
-      <div id="contenu">
+        <span class="yellow">PASSAGER <?php echo($new_client->getNumber()); ?>
 
-        Veuillez entrer les coordonnées du passager nr <?php echo($new_client->getNumber()); ?>.<br> Un age négatif sera automatiquement remplacé par sa valeur absolue.
+      </h1>
 
-      </div>
+      <h2>
 
-      <h5>
+        Veuillez entrer les coordonnées du passager nr <?php echo($new_client->getNumber()); ?>.<br><br> Un age négatif sera automatiquement remplacé par sa valeur absolue.
+
+      </h2>
+
+      <h3>
 
   	    <?php
+          echo($new_client->getError());
   	      echo($new_client->getSentence());
   	    ?>
   
-      </h5>
+      </h3>
 
     <form method="get">
 
@@ -46,7 +52,7 @@
 
 	    <input type="hidden" name="page" value="passenger"/>
     
-        <input type="submit" name="next_step" value="Etape suivante"/>
+      <input type="submit" name="next_step" value="Etape suivante"/>
 
     </form>
 

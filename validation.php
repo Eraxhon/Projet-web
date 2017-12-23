@@ -19,11 +19,15 @@
 
     <h1>
 
-      <span class="yellow">VALIDATION DES RESERVATIONS</pan>
+      <span class="yellow">VALIDATION DE LA RESERVATION</pan>
 
     </h1>
 
-    <h2>Voici le résultat de votre réservation</h2>
+    <h2>
+
+      Voici le résultat de votre réservation. Si vous êtes satisfaits, appuyez sur "Confirmer". <br><br> Vous pouvez aussi retourner à la page précédente ou à la page d'accueil.
+
+    </h2>
 
     <table class="container">
 
@@ -48,17 +52,16 @@
 
         <tr>
 
-          <td>
-            <?php
-              for ($i = 0 ; $i < $information->getPlaces() ; $i++) 
-              {
-                print_r("Nom</td> <td>");
-                echo($new_client->getNames($i));
-                print_r("</td><tr> <td>Age</td> <td>");
-                echo($new_client->getAge($i));
-                print_r("</td></tr>");
-              }
-            ?>
+          <?php
+            for ($i = 0 ; $i < $information->getPlaces() ; $i++) 
+            {
+              print_r("<td>Nom</td> <td>");
+              echo($new_client->getNames($i));
+              print_r("</td><tr> <td>Age</td> <td>");
+              echo($new_client->getAge($i));
+              print_r("</td></tr>");
+            }
+          ?>
           </td>
 
         </tr>
@@ -84,10 +87,8 @@
       <input type="submit" name="cancel" value="Annuler la reservation"/>
     </td></tr><tr><td>
       <input type="submit" name="back" value="Retour a la page precedente"/>
-    </td></tr><tr><td>
-    <button type="button">Click Me!</button>
-    </td></tr>
-    </form>
+    </td></form>
+  </tr>
 
 
 </table>

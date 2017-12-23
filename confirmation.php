@@ -3,21 +3,29 @@
 
   <head>
     
-    <mega charset='UTF-8'>
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
     <title>CONFIRMATION</title>
+    <mega charset='UTF-8'>
+    
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
 
   </head> <br><br>
 
-  <body>
+  <body style="text-align: center;">
 
-  	<h1> CONFIRMATION DES RESERVATIONS </h1>
+  	<h1> 
+
+  	  <span class="yellow">CONFIRMATION DES RESERVATIONS</pan>
+
+  	</h1>
 	
-	<div id="contenu">
-	  Votre commande a bien ete enregistree. <br>
+	<h2>
+
+	  Votre commande a bien ete enregistrée. <br><br>
 	  Merci de bien vouloir verser la somme de &#8364;<?php echo
 	  ($new_client->getPrice($information->getInsurance())); ?> 
 	  sur le compte 000-000000-00. <br><br>
+
+	</h2>
 	
       <form>
 	  
