@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang='fr'>
+<html lang = 'fr'>
 
   <head>
 
     <title>ADMIN</title>
-    <meta charset='UTF-8'>
+    <meta charset = 'UTF-8'>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/test.css">
+    <link rel = "stylesheet" type="text/css" media="screen" href="./css/test.css">
   
   </head> <br><br>
 
-  <body style="text-align: center;">
+  <body style = "text-align: center;">
 
     <h1>
 
-      <span class="yellow">ADMIN</pan>
+      <span class = "yellow">ADMIN</pan>
 
     </h1>
 
@@ -24,7 +24,7 @@
 
     </h2>
 
-	<table class="container">
+	<table class = "container">
 
 	  <tbody>
 

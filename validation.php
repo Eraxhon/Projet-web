@@ -1,6 +1,6 @@
 <?php 
-  $information=unserialize($_SESSION['dest']);
-  $new_client=unserialize($_SESSION['client']); 
+  $information = unserialize($_SESSION['dest']);
+  $new_client = unserialize($_SESSION['client']); 
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +9,9 @@
   <head>
 
     <title>VALIDATION</title>
-    <meta charset='UTF-8'>
+    <meta charset = 'UTF-8'>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/test.css">
+    <link rel = "stylesheet" type = "text/css" media = "screen" href = "./css/test.css">
   
   </head> <br><br>
 
@@ -19,7 +19,7 @@
 
     <h1>
 
-      <span class="yellow">VALIDATION DE LA RESERVATION</pan>
+      <span class = "yellow">VALIDATION DE LA RESERVATION</pan>
 
     </h1>
 
@@ -29,7 +29,7 @@
 
     </h2>
 
-    <table class="container">
+    <table class = "container">
 
       <tbody>
         <tr> 
@@ -78,15 +78,15 @@
 
         </tr>
 
-    <form class="container1">
+    <form class = "container1">
     
-      <input type="hidden" name="page" value="validation">
+      <input type = "hidden" name = "page" value = "validation">
     <tr><td>
-      <input type="submit" name="confirmation" value="Confirmation"/>
+      <input type = "submit" name = "confirmation" value = "Confirmation"/>
     </td></tr><tr><td>
-      <input type="submit" name="cancel" value="Annuler la reservation"/>
+      <input type = "submit" name = "cancel" value = "Annuler la reservation"/>
     </td></tr><tr><td>
-      <input type="submit" name="back" value="Retour a la page precedente"/>
+      <input type = "submit" name = "back" value = "Retour a la page precedente"/>
     </td></form>
   </tr>
 

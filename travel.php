@@ -21,15 +21,10 @@ class information
     */
     public function resetInformation()
     {
-        $this->destination = "";
+        $this->destination = "surprise";
         $this->places = 0;
         $this->insurance = "NON";
         $this->sentence = "";
-    }
-
-    public function getInsurance()
-    {
-        return($this->insurance);
     }
 
     public function getDestination()
@@ -66,6 +61,11 @@ class information
     public function insuranceTrue()
     {
         $this->insurance = "OUI";
+    }
+
+    public function getInsurance()
+    {
+        return $this->insurance;
     }
 
     public function cancel()

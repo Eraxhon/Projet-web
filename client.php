@@ -5,12 +5,16 @@ class new_client
 	private $clients;
 	private $number;
 	private $sentence;
+	private $price;
+	private $error;
 
 	public function __construct()
 	{
     	$this->clients = array();
     	$this->number = 1;
     	$this->sentence = "";
+    	$this->price = 0;
+    	$this->error = "";
 	}
 
 	/**
@@ -26,33 +30,54 @@ class new_client
 		$this->number = $this->number + 1;
 	}
 
+	public function getClients()
+	{
+		return $this->clients;
+	}
+
+	public function setMinorError()
+	{
+		$this->error = "Un des passagers doit être majeur. Veuillez entrer ses coordonnées en premier lieu. <br><br>";
+	}
+
+	public function getError()
+	{
+		return $this->error;
+	}
+
 	/*
 	* Calculates the price of the travel looking at the customers ages and the insurance
 	* @return the price (int)
 	*/
 	public function getPrice($insurance)
 	{
-		$price = 0;
+		$total = 0;
 		for ($i = 0 ; $i < count($this->clients) ; $i++)
 		{
-			if($this->clients[$i][3] <= 12)
+			if($this->clients[$i][2] <= 12)
 			{
-				$price += 10;
+				$total += 10;
 			}
 
 			else
 			{
-				$price += 15;
+				$total += 15;
 			}
 		}
 
 		if($insurance == "OUI")
 			{
-				$price += 20;
+				$total += 20;
 			}
 
-		$price += 0;
-		return $price;
+		$total += 0;
+		$this->price = $total;
+		return $total;
+	}
+
+	public function getTotal()
+	{
+		return $this->price;
 	}
 
 	/*
@@ -82,26 +107,25 @@ class new_client
 	}
 
 	/*
-	* Catch the firstname and lastname for each $i
+	* Catch the firstname and lastname for the $i person
 	* @param int $i the customer
 	* @return "firstname lastname"
 	*/
 	public function getNames($i)
 	{
-		print_r($this->clients[$i][0]);
-		print_r(" ");
-		print_r($this->clients[$i][1]);
-		print_r("<br>");
+		$output = $this->clients[$i][0]." ".$this->clients[$i][1];
+		return $output;
 	}
 
 	/*
-	* Catch the age of each $i
+	* Catch the age of the $i person
 	* @param int $i the customer
 	* @return "firstname lastname"
 	*/
 	public function getAge($i)
 	{
-		print_r($this->clients[$i][2]);
+		$output = $this->clients[$i][2];
+		return $output;
 	}
 
 	public function sizeClient()

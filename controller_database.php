@@ -2,10 +2,10 @@
 
 //Connection to the database
 
-$servername="localhost";
-$username="root";
-$password="root";
-$dbname="Reservations";
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "Reservations";
 
 $conn = new mysqli($servername,$username, $password, $dbname);
 
@@ -21,16 +21,16 @@ if($conn->connect_error)
 	$sql = "SELECT groupe.ID_groupe, groupe.Destination, groupe.Assurance, groupe.Prix, information.ID_pass, information.Noms, information.Age 
 		FROM groupe
 		INNER JOIN information
-		WHERE information.ID_groupe=groupe.ID_groupe";
+		WHERE information.ID_groupe = groupe.ID_groupe";
 
-	$result=mysqli_query($conn, $sql);
+	$result = mysqli_query($conn, $sql);
 
 
 	//Definition of the $table object that represents de table
 
-	$table="<tr>";
+	$table = "<tr>";
 
-	while ($info=$result->fetch_field())
+	while ($info = $result->fetch_field())
 	{
 		$table.="<td>".$info->name."</td>";
 	}
@@ -42,9 +42,9 @@ if($conn->connect_error)
 
 	//Display the table
 
-	$group_ID=0;
+	$group_ID = 0;
 
-	while($line=$result->fetch_assoc())
+	while($line = $result->fetch_assoc())
 	{
 
 		$table.="<tr>";

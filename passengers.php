@@ -1,25 +1,25 @@
 <?php
-  include_once('client.php');
-  $new_client=unserialize($_SESSION['client']); 
+  include_once "client.php";
+  $new_client = unserialize($_SESSION['client']); 
 ?>
 
 <!DOCTYPE html>
-<html lang='fr'>
+<html lang = 'fr'>
 
   <head>
 
   <title>PASSAGERS</title>
-	<meta charset="UTF-8">
+	<meta charset = "UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="./css/test.css">
+	<link rel = "stylesheet" type = "text/css" href = "./css/test.css">
 
   </head> <br><br>
 
-  <body style="text-align: center;"> <br>
+  <body style = "text-align: center;"> <br>
 
       <h1>
 
-        <span class="yellow">PASSAGER <?php echo($new_client->getNumber()); ?>
+        <span class = "yellow">PASSAGER <?php echo($new_client->getNumber()); ?>
 
       </h1>
 
@@ -38,26 +38,26 @@
   
       </h3>
 
-    <form method="get">
+    <form method = "get">
 
         <p>
 
-          Nom :       <input type="text" name="firstName"/> <br><br>
+          Nom :       <input type = "text" name = "firstName"/> <br><br>
 
-          Prenom :   <input type="text" name="lastName"/> <br><br>
+          Prenom :   <input type = "text" name = "lastName"/> <br><br>
 
-          Age :       <input type="number" name="age"/> <br><br>
+          Age :       <input type = "number" name = "age"/> <br><br>
 
         </p>
 
-	    <input type="hidden" name="page" value="passenger"/>
+	    <input type = "hidden" name = "page" value = "passenger"/>
     
-      <input type="submit" name="next_step" value="Etape suivante"/>
+      <input type = "submit" name = "next_step" value = "Etape suivante"/>
 
     </form>
 
   </body>
 
 <?php 
-  $_SESSION['client']=serialize($new_client)
+  $_SESSION['client'] = serialize($new_client)
 ?>

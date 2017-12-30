@@ -17,20 +17,21 @@ if (isset($_GET['destination']) && isset($_GET['places']) && isset($_GET['next_s
 		$information->insuranceFalse();
 	}
 	$_SESSION['dest'] = serialize($destination);
-	include('passengers.php');
+	include "passengers.php";
 }
 
+//the button 'annuler la réservation' was pressed
 else if (isset($_GET['cancel'])) 
 {
-	$_SESSION['dest'] = serialize($destination);
-	include('reservation.php');
+	session_destroy();
+	include "reservation.php";
 }
 
 else 
 {
 	$information->setSentence();
 	$_SESSION['dest'] = serialize($destination);
-	include('reservation.php');
+	include "reservation.php";
 }
 
 ?>

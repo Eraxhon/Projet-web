@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang='fr'>
+<html lang = 'fr'>
 
   <head>
     
     <title>CONFIRMATION</title>
-    <mega charset='UTF-8'>
+    <mega charset = 'UTF-8'>
     
-    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <link rel = "stylesheet" type = "text/css" href = "./css/test.css">
 
   </head> <br><br>
 
-  <body style="text-align: center;">
+  <body style = "text-align: center;">
 
   	<h1> 
 
-  	  <span class="yellow">CONFIRMATION DES RESERVATIONS</pan>
+  	  <span class = "yellow">CONFIRMATION DES RESERVATIONS</pan>
 
   	</h1>
 	
@@ -29,9 +29,9 @@
 	
       <form>
 	  
-	    <input type="hidden" value="validation">
+	    <input type = "hidden" value = "validation">
 	  
-	    <input type="submit" name="back_home" value="Retour a la page d'acceuil"/>
+	    <input type = "submit" name = "back_home" value = "Retour a la page d'acceuil"/>
 	
 	  </form>
 

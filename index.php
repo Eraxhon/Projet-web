@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (!empty($_GET['page']) && is_file('./controllers/controller_'.$_GET['page'].'.php'))

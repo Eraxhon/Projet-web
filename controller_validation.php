@@ -1,27 +1,27 @@
 <?php
 
-include('./client.php');
-include("./travel.php");
+include "./client.php";
+include "./travel.php";
 $information = unserialize($_SESSION['dest']);
 $new_client = unserialize($_SESSION['client']);
 
 if (isset($_GET['back']))
 {
 	//pourrait d'abbord remettre le $i à (longueur -1) comme ca il remet les valeurs ?
-	include("./templates/passengers.php");
+	include "./templates/passengers.php";
 }
 
 /*
 If the 'cancel' button is pressed :
-Resets each variable's values  in the classes 'information' and 'new_client'
+Resets each variable's values  in the classe 'new_client'
+Destroys the session
 Includes the home page
 */
 elseif (isset($_GET['cancel']))
 {
-	//faudrait dropp info
-	$information->resetInformation();
 	$new_client->resetClient();
-	include("./templates/reservation.php");
+	session_destroy();
+	include "./templates/reservation.php";
 }
 
 elseif (isset($_GET['confirmation']))
@@ -30,10 +30,10 @@ elseif (isset($_GET['confirmation']))
 	$new_client->getPrice($information->getInsurance());
 
 		//Connection to the database
-		$servername="localhost";
-		$username="root";
-		$password="root";
-		$dbname="Reservations";
+		$servername = "localhost";
+		$username = "root";
+		$password = "root";
+		$dbname = "Reservations";
 
 		$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -43,20 +43,20 @@ elseif (isset($_GET['confirmation']))
 		}
 
 		//Fill in the table 'groupe' (only once because same info for each passenger)
-		$dest=$information->getDestination(0);
-		$total=$new_client->getTotal(0);
-		$insurance=$information->getInsurance(0);
+		$dest = $information->getDestination(0);
+		$total = $new_client->getTotal(0);
+		$insurance = $information->getInsurance(0);
 
-		$sql="INSERT INTO groupe (Destination, Prix, Assurance) VALUES('".$dest ."', ".$total .", '".$insurance ."')";
+		$sql = "INSERT INTO groupe (Destination, Prix, Assurance) VALUES('".$dest ."', ".$total .", '".$insurance ."')";
 		$conn->query($sql);
 		$ID_insert = $conn->insert_id;
 
 		//Fill in the table 'information' (one line per passenger)
 		for($i=0; $i<(count($new_client->getClients())); $i++)
 		{
-			$name=$new_client->getNames($i);
-			$age=$new_client->getAge($i);
-			$sql="INSERT INTO information (ID_groupe, Noms, Age) VALUES('".$ID_insert ."', '".$name ."', ".$age .")";
+			$name = $new_client->getNames($i);
+			$age = $new_client->getAge($i);
+			$sql = "INSERT INTO information (ID_groupe, Noms, Age) VALUES('".$ID_insert ."', '".$name ."', ".$age .")";
 			$conn->query($sql);
 		}
 		
@@ -64,7 +64,7 @@ elseif (isset($_GET['confirmation']))
 
 		//end database
 
-	include("./templates/confirmation.php");
+	include "./templates/confirmation.php";
 }
 
 /*
@@ -75,12 +75,7 @@ Includes the passengers page
 elseif (isset($_GET['back']))
 {
 	$new_client->resetClient();
-	include("./templates/passengers.php");
-}
-
-else
-{
-	break;
+	include "./templates/passengers.php";
 }
 
 $_SESSION['client'] = serialize($new_client);
