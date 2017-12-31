@@ -1,14 +1,22 @@
 <?php
-
 	include_once "./client.php";
 	include_once "./travel.php";
 	$new_client = unserialize($_SESSION['client']);
 	$information = unserialize($_SESSION['dest']);
 
+	$number = $new_client->getNumber();
+	$button = "<input type = 'hidden' name = 'page' value = 'passenger'/>
+               <input type = 'submit' name = 'next_step' value = 'Etape suivante'/>";
+    $firstname = "";
+    $lastname = "";
+
+    //reset the errors
+	$new_client->resetErrors();
+
 	if ((!empty($_GET['age'])) && (!empty($_GET['firstName'])) && (!empty($_GET['lastName'])) 
 		&& isset($_GET['next_step']))
 	{
-		//show an error if the passenger is minor
+		//show an error if the first passenger is minor
 		if(count($new_client->getClients())==0 && intval($_GET['age'])<18)
 		{
 			$new_client->setMinorError();
@@ -21,7 +29,7 @@
 			//Adds the information in the 'client' class
 			$new_client->addClient($_GET['firstName'], $_GET['lastName'], $_GET['age']);
 			$_SESSION['client'] = serialize($new_client);
-
+			
 			if($new_client->getNumber()<=(int) $information->getPlaces())
 			{	
 				include "./templates/passengers.php";
@@ -43,5 +51,4 @@
 
 	$_SESSION['client'] = serialize($new_client);
 	$_SESSION['dest'] = serialize($information);
-
 ?>

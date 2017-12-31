@@ -1,6 +1,6 @@
 <?php 
-$information=unserialize($_SESSION['dest']);
-$new_client=unserialize($_SESSION['client']); 
+$information = unserialize($_SESSION['dest']);
+$new_client = unserialize($_SESSION['client']); 
 ?>
 
 <!DOCTYPE html>

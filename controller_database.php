@@ -18,10 +18,11 @@ if($conn->connect_error)
 
 	//Selection in the database
 
-	$sql = "SELECT groupe.ID_groupe, groupe.Destination, groupe.Assurance, groupe.Prix, information.ID_pass, information.Noms, information.Age 
-		FROM groupe
-		INNER JOIN information
-		WHERE information.ID_groupe = groupe.ID_groupe";
+	$sql = "SELECT groupe.ID_groupe, groupe.Destination, groupe.Assurance, groupe.Prix, 
+				information.ID_pass, information.Noms, information.Age 
+			FROM groupe
+			INNER JOIN information
+			WHERE information.ID_groupe = groupe.ID_groupe";
 
 	$result = mysqli_query($conn, $sql);
 
@@ -79,18 +80,17 @@ if($conn->connect_error)
 			  {
 
 				$table.="<td>".$col_value."</td>";
-				$group_ID=$line['ID_groupe'];
+				$group_ID = $line['ID_groupe'];
 
 			  }				
 
 			}
 
-
 		$table.="
-					<form method='get' action='controller_admin.php'>
+					<form method='get' action='index.php?page=admin'>
 					<input type='hidden' name='page' value='admin'><td>
 					<input type='hidden' name='ID_pass' value='".$line['ID_pass']."'/>
-					<input type='submit' name='edit' value='Editer'</td>
+					<input type='submit' name='edit' value='Editer'</td><td>
 					<input type='submit' name='delete' value='Supprimer'</td>
 					</form>";
 
@@ -99,6 +99,6 @@ if($conn->connect_error)
 
 	$conn->close();
 
-	include('../templates/admin.php');
+	include('./templates/admin.php');
 
 ?>

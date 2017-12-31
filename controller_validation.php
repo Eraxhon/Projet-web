@@ -7,7 +7,15 @@ $new_client = unserialize($_SESSION['client']);
 
 if (isset($_GET['back']))
 {
-	//pourrait d'abbord remettre le $i à (longueur -1) comme ca il remet les valeurs ?
+	$number = $new_client->getNumber() -1;
+	$button = "<input type = 'hidden' name = 'page' value = 'passenger'/>
+               <input type = 'submit' name = 'next_step' value = 'Etape suivante'/>";
+
+	$lastClient = $new_client->getLastClient();
+	$firstname = $lastClient[0];
+	$lastname = $lastClient[1];
+	$new_client->resetClient();
+	$_SESSION['client'] = serialize($new_client);
 	include "./templates/passengers.php";
 }
 

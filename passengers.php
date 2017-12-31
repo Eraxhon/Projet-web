@@ -1,8 +1,3 @@
-<?php
-  include_once "client.php";
-  $new_client = unserialize($_SESSION['client']); 
-?>
-
 <!DOCTYPE html>
 <html lang = 'fr'>
 
@@ -19,13 +14,13 @@
 
       <h1>
 
-        <span class = "yellow">PASSAGER <?php echo($new_client->getNumber()); ?>
+        <span class = "yellow">PASSAGER <?php print_r($number) ?>
 
       </h1>
 
       <h2>
 
-        Veuillez entrer les coordonnées du passager nr <?php echo($new_client->getNumber()); ?>.<br><br> Un age négatif sera automatiquement remplacé par sa valeur absolue.
+        Veuillez entrer les coordonnées du passager <?php print_r($number) ?><br><br> Un age négatif sera automatiquement remplacé par sa valeur absolue.
 
       </h2>
 
@@ -38,26 +33,20 @@
   
       </h3>
 
-    <form method = "get">
+    <form method = "get" action = "index.php">
 
         <p>
 
-          Nom :       <input type = "text" name = "firstName"/> <br><br>
+          Nom :       <input type = "text" name = "firstName" value = <?php print_r($firstname) ?>/> <br><br>
 
-          Prenom :   <input type = "text" name = "lastName"/> <br><br>
+          Prenom :   <input type = "text" name = "lastName" value = <?php print_r($lastname) ?>/> <br><br>
 
           Age :       <input type = "number" name = "age"/> <br><br>
 
         </p>
 
-	    <input type = "hidden" name = "page" value = "passenger"/>
-    
-      <input type = "submit" name = "next_step" value = "Etape suivante"/>
+      <?php echo "$button"?>
 
     </form>
 
   </body>
-
-<?php 
-  $_SESSION['client'] = serialize($new_client)
-?>

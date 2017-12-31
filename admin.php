@@ -30,7 +30,7 @@
 
     	<?php echo "$table" ?>
 
-      </tbody>
+    </tbody>
 
 	</table>
 

@@ -20,7 +20,7 @@
 	
 	<h2>
 
-	  Votre commande a bien ete enregistrée. <br><br>
+	  Votre commande a bien ete enregistr&#233;e. <br><br>
 	  Merci de bien vouloir verser la somme de &#8364;<?php echo
 	  ($new_client->getPrice($information->getInsurance())); ?> 
 	  sur le compte 000-000000-00. <br><br>
